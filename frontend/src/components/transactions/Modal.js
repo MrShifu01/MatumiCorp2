@@ -34,13 +34,13 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
             <div className="container border inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="row border mb-3">
                 <div className="col w-25 d-flex justify-content-end">
-                  <button onClick={closeModal} className="modal-button">
+                  <button onClick={closeModal} className="modal-close-button">
                     <img width="25px" src="close.png" alt="close" />
                   </button>
                 </div>
               </div>
               <div className='row'>
-                <div className="modal-main col-md-8">
+                <div className="border modal-main col-md-8">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"

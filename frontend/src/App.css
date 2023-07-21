@@ -97,6 +97,11 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.modal-close-button {
+  border: none;
+  background-color: transparent;
+}
+
 .square-button:hover {
   filter: grayscale(0%);
 }
