@@ -131,6 +131,21 @@ transform: translateX(20%);
 .modal-close-button{
     border: none;
     background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-close-button:hover{
+    transform: scale(1.2);
+}
+
+.modal-nav-button {
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-nav-button:hover {
+    transform: scale(1.2);
 }
 
 .square-button:hover {

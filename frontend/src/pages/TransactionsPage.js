@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import Modal from '../components/transactions/Modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../redux/transactionsSlice';
+import { openModal, closeCurrentModal } from '../redux/transactionsSlice';
 import React from 'react';
+import Navigation from '../components/Navigation';
 
 const TransactionsPage = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const modalsData = [
   };
   
   const handleCloseModal = () => {
-    dispatch(closeModal());
+    dispatch(closeCurrentModal());
   };
 
 
@@ -64,12 +65,16 @@ const modalsData = [
 
     <>
     {!isModalOpen && 
-      <section className='transactions bg-light vh-100'>
+    <Navigation bg='bg-light' />}
+      <section className='transactions bg-light vh-100 pt-1'>
         <div className="container-xxl">
           <div className='row mt-8'>
             <div className='col'>
-              <Link to='/' className='btn text-secondary'>Go Back</Link>
-                <h2 className='text-center'>Transactions</h2>
+              <Link to='/' className='btn text-secondary mt-5'>Go Back</Link>
+                <h2 className='text-center display-3'>Transactions</h2>
+
+                {/* Search and Filter Placeholder */}
+
                 <div className='row mt-8'>
                     {modalsData.map((modal) => (
                       <div className="col-md-3 text-center modal-buttons">

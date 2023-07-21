@@ -26,9 +26,9 @@ const ScrollListener = () => {
   return isScrolled;
 };
 
-function Navigation() {
+function Navigation({bg}) {
   const [expanded, setExpanded] = useState(false);
-  const isScrolled = ScrollListener();
+  const isScrolled = bg === 'bg-light' ? true : ScrollListener();
 
   return (
     <div>
@@ -41,10 +41,11 @@ function Navigation() {
         variant="primary"
       >
         <div className="navbar-content container-fluid">
-          <Navbar.Brand
-            className={`text-2xl ${isScrolled ? "text-primary" : "text-light"}`}
-            href="#hero"
-          >
+        <Navbar.Brand
+          className={`text-2xl ${isScrolled ? "text-primary" : "text-light"}`}
+          href="#hero"
+        >
+          {bg !== 'bg-light' ? (
             <Link
               to="hero"
               spy={true}
@@ -58,107 +59,122 @@ function Navigation() {
                 alt="logo"
               />
             </Link>
-          </Navbar.Brand>
+          ) : (
+            <LinkRouter to="/">
+              <img
+                style={{ width: "100px" }}
+                src={`${isScrolled ? "black.png" : "white.png"}`}
+                alt="logo"
+              />
+            </LinkRouter>
+          )}
+        </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
           <Navbar.Collapse
             id="basic-navbar-nav"
             className={`${isScrolled ? "" : "dark-bg"}`}
           >
             <Nav className="ms-auto pt-3">
-              <Nav.Link>
-                <LinkRouter className='btn nav-button btn-primary shadow' to="/transactions">TRANSACTIONS</LinkRouter>
-              </Nav.Link>
-              <Nav.Link
-                className={`text-uppercase ${
-                  isScrolled ? "text-dark" : "text-light"
-                }`}
-                href="#about"
+
+              {bg !== 'bg-light' &&
+                <>
+
+                <Nav.Link>
+                  <LinkRouter className='btn nav-button btn-primary shadow' to="/transactions">TRANSACTIONS</LinkRouter>
+                </Nav.Link>
+
+                <Nav.Link
+                  className={`text-uppercase ${
+                    isScrolled ? "text-dark" : "text-light"
+                  }`}
+                  href="#about"
                 
-              >
-                <Link
-                  activeClass="active-link"
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setExpanded(false)}
                 >
-                  About us
-                </Link>
-              </Nav.Link>
-              <Nav.Link
-                className={`text-dark text-uppercase ${
-                  isScrolled ? "text-dark" : "text-light"
-                }`}
-                href="#services"
-              >
-                <Link
-                  activeClass="active-link"
-                  to="services"
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setExpanded(false)}
+                  <Link
+                    activeClass="active-link"
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setExpanded(false)}
+                  >
+                    About us
+                  </Link>
+                </Nav.Link>
+                <Nav.Link
+                  className={`text-dark text-uppercase ${
+                    isScrolled ? "text-dark" : "text-light"
+                  }`}
+                  href="#services"
                 >
-                  Services
-                </Link>
-              </Nav.Link>
-              <Nav.Link
-                className={`text-dark text-uppercase ${
-                  isScrolled ? "text-dark" : "text-light"
-                }`}
-                href="#testimonials"
-              >
-                <Link
-                  activeClass="active-link"
-                  to="testimonials"
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setExpanded(false)}
+                  <Link
+                    activeClass="active-link"
+                    to="services"
+                    spy={true}
+                    smooth={true}
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setExpanded(false)}
+                  >
+                    Services
+                  </Link>
+                </Nav.Link>
+                <Nav.Link
+                  className={`text-dark text-uppercase ${
+                    isScrolled ? "text-dark" : "text-light"
+                  }`}
+                  href="#testimonials"
                 >
-                  Testimonials
-                </Link>
-              </Nav.Link>
-              <Nav.Link
-                className={`text-dark text-uppercase ${
-                  isScrolled ? "text-dark" : "text-light"
-                }`}
-                href="#Team"
-              >
-                <Link
-                  activeClass="active-link"
-                  to="team"
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setExpanded(false)}
+                  <Link
+                    activeClass="active-link"
+                    to="testimonials"
+                    spy={true}
+                    smooth={true}
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setExpanded(false)}
+                  >
+                    Testimonials
+                  </Link>
+                </Nav.Link>
+                <Nav.Link
+                  className={`text-dark text-uppercase ${
+                    isScrolled ? "text-dark" : "text-light"
+                  }`}
+                  href="#Team"
                 >
-                  Team
-                </Link>
-              </Nav.Link>
-              <Nav.Link
-                className={`text-dark text-uppercase ${
-                  isScrolled ? "text-dark" : "text-light"
-                }`}
-                href="#Contact"
-              >
-                <Link
-                  activeClass="active-link"
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setExpanded(false)}
+                  <Link
+                    activeClass="active-link"
+                    to="team"
+                    spy={true}
+                    smooth={true}
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setExpanded(false)}
+                  >
+                    Team
+                  </Link>
+                </Nav.Link>
+                <Nav.Link
+                  className={`text-dark text-uppercase ${
+                    isScrolled ? "text-dark" : "text-light"
+                  }`}
+                  href="#Contact"
                 >
-                  Contact
-                </Link>
-              </Nav.Link>
+                  <Link
+                    activeClass="active-link"
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setExpanded(false)}
+                  >
+                    Contact
+                  </Link>
+                </Nav.Link>
+              </>}
 
             </Nav>
           </Navbar.Collapse>

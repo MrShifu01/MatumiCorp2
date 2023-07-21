@@ -14,13 +14,13 @@ const transactionsSlice = createSlice({
             state.activeModalId = action.payload;
         },
 
-        closeModal(state) {
+        closeCurrentModal(state) {
             state.isModalOpen = false;
             state.activeModalId = null;
         }
     }
 });
 
-export const { openModal, closeModal } = transactionsSlice.actions;
+export const { openModal, closeCurrentModal } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;
