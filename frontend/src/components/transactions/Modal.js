@@ -40,14 +40,13 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
                 </div>
               </div>
               <div className='row'>
-                <div className="border modal-main col-md-8">
+                <div className="modal-main col-md-8">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
                     <div className='d-flex flex-column gap-5'>
                       {<img width={'100px'} src={activeModal.imageSrc} alt="logo"/>}
-                      
                       <p className='modal-description'>{activeModal.description}</p>
                     </div>
                   </Dialog.Title>

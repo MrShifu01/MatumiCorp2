@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ModalCard from '../components/transactions/ModalCard';
 import Modal from '../components/transactions/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../redux/transactionsSlice';
@@ -65,7 +64,7 @@ const modalsData = [
 
     <>
     {!isModalOpen && 
-      <section className='transactions'>
+      <section className='transactions bg-light vh-100'>
         <div className="container-xxl">
           <div className='row mt-8'>
             <div className='col'>
@@ -73,13 +72,14 @@ const modalsData = [
                 <h2 className='text-center'>Transactions</h2>
                 <div className='row mt-8'>
                     {modalsData.map((modal) => (
-                      <div className="col-md-3 modal-buttons">
+                      <div className="col-md-3 text-center modal-buttons">
                         <button
                           key={modal.id}
                           type="button"
                           onClick={() => handleOpenModal(modal.id)}
+                          className='modal-button square-button p-7 shadow bg-white rounded-1'
                         >
-                          <ModalCard key={modal.id} imageSrc={modal.imageSrc}/>
+                          <img className="square-image" src={modal.imageSrc} alt="logo" />
                         </button>
                       </div>
                     ))}

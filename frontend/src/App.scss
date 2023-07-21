@@ -120,8 +120,24 @@ transform: translateX(20%);
 }
 
 .modal-button {
+    width: 18rem;
+    height: 18rem;
     border: none;
     background-color: transparent;
+    filter: grayscale(100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.square-button:hover {
+    filter: grayscale(0%);
+    .square-image {
+        transform: scale(1.08);
+    }
+}
+
+.square-image {
+    width: 100px;
+    transition: all 0.3s ease-in-out;
 }
 
 .heading{
