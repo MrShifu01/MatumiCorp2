@@ -105,6 +105,3 @@ const modalsData = [
 };
 
 export default TransactionsPage;
-=======
-export default TransactionsPage
->>>>>>> e45281b6fdd2c28a29946e84988ee4e99e2ecb9f
