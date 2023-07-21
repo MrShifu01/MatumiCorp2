@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import ModalCard from '../components/transactions/ModalCard';
 import Modal from '../components/transactions/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../redux/transactionsSlice';
-=======
-import React from 'react'
-import Modal from '../components/transactions/modal'
->>>>>>> e45281b6fdd2c28a29946e84988ee4e99e2ecb9f
+import React from 'react';
 
 const TransactionsPage = () => {
   const dispatch = useDispatch();
@@ -55,7 +51,6 @@ const modalsData = [
   // Add more modals as needed...
 ];
 
-<<<<<<< HEAD
   
   const handleOpenModal = (index) => {
     dispatch(openModal(index));
