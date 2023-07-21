@@ -48,7 +48,7 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="container-fluid inline-block w-full max-w-md p-6 mb-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+            <div className="w-screen h-screen inline-block w-full max-w-md p-6 mb-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="row mb-3">
                 <div className="col w-25 d-flex justify-content-end">
                   <button onClick={closeModal} className="modal-close-button">

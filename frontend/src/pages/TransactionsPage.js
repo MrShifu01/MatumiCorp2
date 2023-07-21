@@ -64,17 +64,14 @@ const modalsData = [
   return (
 
     <>
+    {!isModalOpen && <Navigation bg={'bg-light'}/>}
     {!isModalOpen && 
-    <Navigation bg='bg-light' />}
-      <section className='transactions bg-light vh-100 pt-1'>
+      <section className='transactions bg-light vh-100'>
         <div className="container-xxl">
-          <div className='row mt-8'>
+          <div className='row pt-8'>
             <div className='col'>
               <Link to='/' className='btn text-secondary mt-5'>Go Back</Link>
-                <h2 className='text-center display-3'>Transactions</h2>
-
-                {/* Search and Filter Placeholder */}
-
+                <h2 className='text-center'>Transactions</h2>
                 <div className='row mt-8'>
                     {modalsData.map((modal) => (
                       <div className="col-md-3 text-center modal-buttons">
