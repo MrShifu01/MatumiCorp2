@@ -5,8 +5,13 @@ dotenv.config()
 const PORT = process.env.PORT || 8000
 const connectDB = require('./config/db')
 const transactionRoutes = require('./routes/transactionRoutes')
+const cors = require('cors')
 
 connectDB()
+app.use(express.json())
+app.use(cors({
+    origin: ['http://localhost:3000', '*']
+}))
 
 app.use('/api/transactions', transactionRoutes)
 
