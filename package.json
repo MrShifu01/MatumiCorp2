@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon backend/server.js",
     "data:import": "node backend/seed.js",
-    "data:destroy": "node backend/seed.js -d"
+    "data:destroy": "node backend/seed.js -d",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Christian Stander",
   "license": "MIT",
