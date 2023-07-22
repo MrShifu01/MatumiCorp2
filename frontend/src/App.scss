@@ -144,6 +144,13 @@ transform: translateX(20%);
     transition: all 0.3s ease-in-out;
 }
 
+.nav-link-div {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
 .modal-nav-button:hover {
     transform: scale(1.2);
 }

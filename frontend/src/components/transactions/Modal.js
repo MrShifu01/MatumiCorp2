@@ -4,18 +4,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { openModal } from '../../redux/transactionsSlice';
 
 const Modal = ({ closeModal, activeModalId, modalsData }) => {
-  const activeModal = modalsData.find((modal) => modal.id === activeModalId);
+  const activeModal = modalsData.find((modal) => modal._id === activeModalId);
   const dispatch = useDispatch();
   const { isModalOpen } = useSelector((state) => state.transactions);
 
   const handleNextModal = () => {
-    const nextModalIndex = modalsData.findIndex((modal) => modal.id === activeModalId) + 1;
+    const nextModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) + 1;
     const nextModalId = modalsData[nextModalIndex % modalsData.length].id;
     dispatch(openModal(nextModalId));
   };
 
   const handlePrevModal = () => {
-    const prevModalIndex = modalsData.findIndex((modal) => modal.id === activeModalId) - 1;
+    const prevModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) - 1;
     const prevModalId =
       modalsData[(prevModalIndex + modalsData.length) % modalsData.length].id;
     dispatch(openModal(prevModalId));

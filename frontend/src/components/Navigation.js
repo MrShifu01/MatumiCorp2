@@ -83,11 +83,10 @@ function Navigation({bg}) {
                   <LinkRouter className='btn nav-button btn-primary shadow' to="/transactions">TRANSACTIONS</LinkRouter>
                 </Nav.Link>
 
-                <Nav.Link
-                  className={`text-uppercase ${
+                <div
+                  className={`text-uppercase nav-link-div ${
                     isScrolled ? "text-dark" : "text-light"
                   }`}
-                  href="#about"
                 
                 >
                   <Link
@@ -101,12 +100,12 @@ function Navigation({bg}) {
                   >
                     About us
                   </Link>
-                </Nav.Link>
-                <Nav.Link
-                  className={`text-dark text-uppercase ${
+                </div>
+                <div
+                  className={`text-dark text-uppercase nav-link-div ${
                     isScrolled ? "text-dark" : "text-light"
                   }`}
-                  href="#services"
+
                 >
                   <Link
                     activeClass="active-link"
@@ -119,12 +118,11 @@ function Navigation({bg}) {
                   >
                     Services
                   </Link>
-                </Nav.Link>
-                <Nav.Link
-                  className={`text-dark text-uppercase ${
+                </div>
+                <div
+                  className={`text-dark text-uppercase nav-link-div ${
                     isScrolled ? "text-dark" : "text-light"
                   }`}
-                  href="#testimonials"
                 >
                   <Link
                     activeClass="active-link"
@@ -137,12 +135,11 @@ function Navigation({bg}) {
                   >
                     Testimonials
                   </Link>
-                </Nav.Link>
-                <Nav.Link
-                  className={`text-dark text-uppercase ${
+                </div>
+                <div
+                  className={`text-dark text-uppercase nav-link-div ${
                     isScrolled ? "text-dark" : "text-light"
                   }`}
-                  href="#Team"
                 >
                   <Link
                     activeClass="active-link"
@@ -155,12 +152,11 @@ function Navigation({bg}) {
                   >
                     Team
                   </Link>
-                </Nav.Link>
-                <Nav.Link
-                  className={`text-dark text-uppercase ${
+                </div>
+                <div
+                  className={`text-dark text-uppercase nav-link-div ${
                     isScrolled ? "text-dark" : "text-light"
                   }`}
-                  href="#Contact"
                 >
                   <Link
                     activeClass="active-link"
@@ -173,7 +169,7 @@ function Navigation({bg}) {
                   >
                     Contact
                   </Link>
-                </Nav.Link>
+                </div>
               </>}
 
             </Nav>
