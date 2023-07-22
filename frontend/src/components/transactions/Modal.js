@@ -10,14 +10,14 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
 
   const handleNextModal = () => {
     const nextModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) + 1;
-    const nextModalId = modalsData[nextModalIndex % modalsData.length].id;
+    const nextModalId = modalsData[nextModalIndex % modalsData.length]._id;
     dispatch(openModal(nextModalId));
   };
 
   const handlePrevModal = () => {
     const prevModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) - 1;
     const prevModalId =
-      modalsData[(prevModalIndex + modalsData.length) % modalsData.length].id;
+      modalsData[(prevModalIndex + modalsData.length) % modalsData.length]._id;
     dispatch(openModal(prevModalId));
   };
 
