@@ -2,7 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "https://matumicorp.onrender.com",
+  // "proxy": "http://localhost:8000",
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@reduxjs/toolkit": "^1.9.5",
