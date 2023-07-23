@@ -19,17 +19,37 @@ app.use(
 
 app.use("/api/transactions", transactionRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  // Set frontend/build as static folder
-  app.use(express.static(path.join(__dirname, "src/frontend/build")));
-  // Serve index.html if any route is hit
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running...");
-  });
-}
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// if (process.env.NODE_ENV === "production") {
+//   // Set frontend/build as static folder
+//   app.use(express.static(path.join(__dirname, "/frontend/build")));
+//   // Serve index.html if any route is hit
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running...");
+//   });
+// }
+
+// if (process.env.NODE_ENV === "production") {
+//   // Set frontend/build as static folder
+//   app.use(express.static(path.join(__dirname, "frontend", "build")));
+//   // Serve index.html if any route is hit
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+//   );
+// } else {
+//   // Serve API running message
+//   app.get("/", (req, res) => {
+//     res.send("API is running...");
+//   });
+
+//   // Handle other routes or API endpoints in development
+//   // ...
+// }
+
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
