@@ -113,6 +113,10 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.modal-nav-btn-wrapper {
+  margin-top: 12rem;
+}
+
 .nav-link-div {
   font-size: 0.9rem;
   margin-top: 0.5rem;
@@ -239,6 +243,9 @@ body {
 @media (max-width: 767px) {
   .footer-wrapper {
     gap: 1.5rem;
+  }
+  .modal-nav-btn-wrapper {
+    margin-top: 1rem;
   }
 }
 @media (max-width: 1000px) {

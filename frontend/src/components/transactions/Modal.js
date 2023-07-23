@@ -49,7 +49,7 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
             leaveTo="opacity-0 scale-95"
           >
             <div className="w-screen h-screen inline-block w-full max-w-md p-6 mb-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <div className="row mb-3">
+              <div className="row">
                 <div className="col w-25 d-flex justify-content-end">
                   <button onClick={closeModal} className="modal-close-button">
                     <img width="25px" src="close.png" alt="close" />
@@ -63,7 +63,7 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
                     <div className='d-flex flex-column gap-5'>
-                      {<img width={'100px'} src={activeModal.imageSrc} alt="logo"/>}
+                      {<img style={{ width: "100px", height: "100px", objectFit: "contain" }} src={activeModal.imageSrc} alt="logo"/>}
                       <p className='modal-description'>{activeModal.description}</p>
                     </div>
                   </Dialog.Title>
@@ -82,7 +82,7 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
                 </div>
               </div>
               {/* Navigation Buttons */}
-              <div className="d-flex gap-7 justify-content-center mt-8">
+              <div className="modal-nav-btn-wrapper d-flex gap-7 justify-content-center">
                 <button type="button" className="modal-nav-button" onClick={handlePrevModal}>
                   <img src="left-arrow.png" width="30px" alt="left arrow" />
                 </button>
