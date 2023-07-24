@@ -2,6 +2,9 @@ import './App.css';
 import './custom.scss';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import axios from 'axios'
+
+axios.defaults.baseURL = "http://localhost:8000"
 
 function App() {
   return (

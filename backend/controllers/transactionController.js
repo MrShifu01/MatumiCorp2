@@ -1,13 +1,46 @@
-const asyncHandler = require('../middleware/asyncHandler');
-const Transaction = require('../models/TransactionModel');
+const asyncHandler = require("../middleware/asyncHandler");
+const Transaction = require("../models/TransactionModel");
 
 // @desc    Get all transactions
 // @route   GET /transactions
 // @access  Public
+// const getTransactions = asyncHandler(async (req, res) => {
+//   console.log(req.query.keyword)
+//   const transactions = await Transaction.find({});
+//   res.json(transactions);
+// });
+
+
 const getTransactions = asyncHandler(async (req, res) => {
-    const transactions = await Transaction.find({});
-    res.status(201).json(transactions);
+  const {keyword, filterOptionMandate, filterOptionGeography, filterOptionIndustry} = req.query
+  let query;
+  if (keyword) {
+    // if keyword, return transactions that match the keyword
+    query = {
+      $or: [
+        { title: { $regex: keyword, $options: "i" } },
+        { mandate: { $regex: keyword, $options: "i" } },
+        { geography: { $regex: keyword, $options: "i" } },
+        { industry: { $regex: keyword, $options: "i" } },
+        { description: { $regex: keyword, $options: "i" } },
+      ],
+    }
+  } else if (filterOptionMandate) {
+    query = { mandate: { $regex: filterOptionMandate, $options: "i" } };
+  } else if (filterOptionGeography) {
+    query = { geography: { $regex: filterOptionGeography, $options: "i" } };
+  } else if (filterOptionIndustry) {
+    query = { industry: { $regex: filterOptionIndustry, $options: "i" } };
+  } else {
+    // if no keyword or filterOption, return all transactions
+    query = {};
+  }
+  
+
+  const transactions = await Transaction.find({ ...query })
+  res.json(transactions);
 });
+
 
 // // @desc    Add a transaction
 // // @route   POST /transactions
@@ -50,8 +83,8 @@ const getTransactions = asyncHandler(async (req, res) => {
 // });
 
 module.exports = {
-    getTransactions,
-    // addTransaction,
-    // updateTransaction,
-    // deleteTransaction,
+  getTransactions,
+  // addTransaction,
+  // updateTransaction,
+  // deleteTransaction,
 };

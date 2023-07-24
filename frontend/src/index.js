@@ -16,7 +16,11 @@ const router = createBrowserRouter([
   {
     path:'/transactions',
     element: <TransactionsPage />,
-  }
+  },
+  {
+    path: '/transactions/search/:keyword',
+    element: <TransactionsPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

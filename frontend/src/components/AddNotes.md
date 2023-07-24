@@ -1,1 +1,0 @@
-modals for the images

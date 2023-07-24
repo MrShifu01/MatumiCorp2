@@ -4,20 +4,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { openModal } from '../../redux/transactionsSlice';
 
 const Modal = ({ closeModal, activeModalId, modalsData }) => {
-  const activeModal = modalsData.find((modal) => modal._id === activeModalId);
+  console.log(modalsData)
+  const activeModal = modalsData?.find((modal) => modal._id === activeModalId);
   const dispatch = useDispatch();
   const { isModalOpen } = useSelector((state) => state.transactions);
 
   const handleNextModal = () => {
     const nextModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) + 1;
-    const nextModalId = modalsData[nextModalIndex % modalsData.length]._id;
+    const nextModalId = modalsData[nextModalIndex % modalsData?.length]._id;
     dispatch(openModal(nextModalId));
   };
 
   const handlePrevModal = () => {
     const prevModalIndex = modalsData.findIndex((modal) => modal._id === activeModalId) - 1;
     const prevModalId =
-      modalsData[(prevModalIndex + modalsData.length) % modalsData.length]._id;
+      modalsData[(prevModalIndex + modalsData?.length) % modalsData?.length]._id;
     dispatch(openModal(prevModalId));
   };
 
@@ -52,7 +53,7 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
               <div className="row">
                 <div className="col w-25 d-flex justify-content-end">
                   <button onClick={closeModal} className="modal-close-button">
-                    <img width="25px" src="close.png" alt="close" />
+                    <img width="25px" src="/close.png" alt="close" />
                   </button>
                 </div>
               </div>
@@ -84,10 +85,10 @@ const Modal = ({ closeModal, activeModalId, modalsData }) => {
               {/* Navigation Buttons */}
               <div className="modal-nav-btn-wrapper d-flex gap-7 justify-content-center">
                 <button type="button" className="modal-nav-button" onClick={handlePrevModal}>
-                  <img src="left-arrow.png" width="30px" alt="left arrow" />
+                  <img src="/left-arrow.png" width="30px" alt="left arrow" />
                 </button>
                 <button type="button" className="modal-nav-button" onClick={handleNextModal}>
-                  <img src="arrow-right.png" width="30px" alt="right arrow" />
+                  <img src="/arrow-right.png" width="30px" alt="right arrow" />
                 </button>
               </div>
             </div>

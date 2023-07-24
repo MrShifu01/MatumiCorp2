@@ -55,7 +55,7 @@ function Navigation({bg}) {
             >
               <img
                 style={{ width: "100px" }}
-                src={`${isScrolled ? "black.png" : "white.png"}`}
+                src={`${isScrolled ? "/black.png" : "/white.png"}`}
                 alt="logo"
               />
             </Link>
@@ -63,7 +63,7 @@ function Navigation({bg}) {
             <LinkRouter to="/">
               <img
                 style={{ width: "100px" }}
-                src={`${isScrolled ? "black.png" : "white.png"}`}
+                src={`${isScrolled ? "/black.png" : "/white.png"}`}
                 alt="logo"
               />
             </LinkRouter>
