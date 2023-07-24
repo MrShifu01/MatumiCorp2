@@ -42,14 +42,20 @@ const getTransactions = asyncHandler(async (req, res) => {
 });
 
 
-// // @desc    Add a transaction
-// // @route   POST /transactions
-// // @access  Private/Admin
-// exports.addTransaction = asyncHandler(async (req, res) => {
-//     const { text, amount } = req.body;
-//     const transaction = await Transaction.create({ text, amount });
-//     res.status(201).json(transaction);
-// });
+// @desc    Add a transaction
+// @route   POST /transactions
+// @access  Private/Admin
+const addTransaction = asyncHandler(async (req, res) => {
+    const transaction = await Transaction.create({
+      title: "New Transaction",
+      mandate: "New Mandate",
+      geography: "New Geography",
+      industry: "New Industry",
+      description: "New Description",
+      imageSrc: "https://via.placeholder.com/100",
+    });
+    res.status(201).json(transaction);
+});
 
 // // @desc    Update a transaction
 // // @route   PUT /transactions/:id
@@ -68,23 +74,33 @@ const getTransactions = asyncHandler(async (req, res) => {
 //     }
 // });
 
-// // @desc    Delete a transaction
-// // @route   DELETE /transactions/:id
-// // @access  Private/Admin
-// exports.deleteTransaction = asyncHandler(async (req, res) => {
-//     const transaction = await Transaction.findById(req.params.id);
-//     if (transaction) {
-//         await transaction.remove();
-//         res.json({ message: 'Transaction removed' });
-//     } else {
-//         res.status(404);
-//         throw new Error('Transaction not found');
-//     }
-// });
+// @desc    Delete a transaction
+// @route   DELETE /transactions/:id
+// @access  Private/Admin
+const deleteTransaction = asyncHandler(async (req, res) => {
+    const transaction = await Transaction.findByIdAndDelete(req.params.id);
+    if (transaction) {
+        res.json({ message: 'Transaction removed' });
+    } else {
+        res.status(404);
+        throw new Error('Transaction not found');
+    }
+});
+
+const getSingleTransaction = asyncHandler(async (req, res) => {
+  const transaction = await Transaction.findById(req.params.id);
+  if (transaction) {
+    res.json(transaction);
+  } else {
+    res.status(404);
+    throw new Error("Transaction not found");
+  }
+});
 
 module.exports = {
   getTransactions,
-  // addTransaction,
+  addTransaction,
   // updateTransaction,
-  // deleteTransaction,
+  deleteTransaction,
+  getSingleTransaction,
 };

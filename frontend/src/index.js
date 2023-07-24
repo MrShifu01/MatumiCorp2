@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import AdminPage from './pages/AdminPage';
+import EditTransactionPage from './pages/EditTransactionPage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: '/transactions/search/:keyword',
     element: <TransactionsPage />,
+  },
+  {
+    path: '/admin/transactions', 
+    element: <AdminPage />,
+  },
+  {
+    path: '/admin/transactions/edit/:id',
+    element: <EditTransactionPage />,
   },
 ]);
 
