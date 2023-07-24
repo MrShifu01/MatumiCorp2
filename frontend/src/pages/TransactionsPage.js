@@ -25,21 +25,21 @@ const TransactionsPage = () => {
   const [filterOptionGeography, setFilterOptionGeography] = useState('')
   const [filterOptionIndustry, setFilterOptionIndustry] = useState('')
 
-  const mandates = modalsData.reduce((uniqueMandates, modal) => {
+  const mandates = modalsData?.reduce((uniqueMandates, modal) => {
     if (!uniqueMandates.includes(modal.mandate)) {
       uniqueMandates.push(modal.mandate);
     }
     return uniqueMandates;
   }, []);
 
-  const geographies = modalsData.reduce((uniqueGeographies, modal) => {
+  const geographies = modalsData?.reduce((uniqueGeographies, modal) => {
     if (!uniqueGeographies.includes(modal.geography)) {
       uniqueGeographies.push(modal.geography);
     }
     return uniqueGeographies;
   }, []);
 
-  const industries = modalsData.reduce((uniqueIndustries, modal) => {
+  const industries = modalsData?.reduce((uniqueIndustries, modal) => {
     if (!uniqueIndustries.includes(modal.industry)) {
       uniqueIndustries.push(modal.industry);
     }
@@ -119,6 +119,13 @@ const TransactionsPage = () => {
     } 
   };
 
+  const handleReset = () => {
+    setFilterOptionMandate('')
+    setFilterOptionGeography('')
+    setFilterOptionIndustry('')
+    navigate('/transactions')
+  }
+
   if (!modalsData) {
     // Handle initial data loading
     return <Loader />;
@@ -162,7 +169,7 @@ const TransactionsPage = () => {
                             onChange={handleFilterMandateChange}
                             className='mr-sm-2 ml-sm-5 ps w-75 bg-transparent border-top-0 border-start-0 border-end-0 rounded-0 border-muted'
                           >
-                            <option value="">All</option>
+                              <option value=""></option>
                             {mandates.map((mandate, index) => (
                               <option key={index} value={mandate}>
                                 {mandate}
@@ -179,7 +186,7 @@ const TransactionsPage = () => {
                             onChange={handleFilterGeographyChange}
                             className='mr-sm-2 ml-sm-5 ps w-75 bg-transparent border-top-0 border-start-0 border-end-0 rounded-0 border-muted'
                           >
-                            <option value="">All</option>
+                              <option value=""></option>
                             {geographies.map((geography, index) => (
                               <option key={index} value={geography}>
                                 {geography}
@@ -196,7 +203,7 @@ const TransactionsPage = () => {
                             onChange={handleFilterIndustryChange}
                             className='mr-sm-2 ml-sm-5 ps w-75 bg-transparent border-top-0 border-start-0 border-end-0 rounded-0 border-muted'
                           >
-                            <option value="">All</option>
+                              <option value=""></option>
                             {industries.map((industry, index) => (
                               <option key={index} value={industry}>
                                 {industry}
@@ -206,6 +213,7 @@ const TransactionsPage = () => {
                       </div>
 
                     </div>
+                    <button onClick={handleReset} className='btn btn-outline-dark mt-5'>Reset Filters</button>
 
                   <div className="row mt-8">
                     {modalsData.map((modal, index) => (
